@@ -50,15 +50,23 @@ public class Toolbox extends SettingsPreferenceFragment implements Preference.On
     public static final String TAG = "Toolbox";
     private static final String KEY_QUICKSWITCH_PREFERENCE = "quickswitch";
     private static final String SYS_GMS_SPOOF = "persist.sys.pixelprops.gms";
+    private static final String SYS_PROP_OPTIONS = "persist.sys.pixelprops.all";
+    private static final String SYS_NETFLIX_SPOOF = "persist.sys.pixelprops.netflix";
+    private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
+    
+    private boolean isPixelDevice;
 
     private Preference mGmsSpoof;
+    private Preference mGphotosSpoof;
+    private Preference mNetflixSpoof;
+    private Preference mPropOptions;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.crdroid_settings_misc);
         final boolean targetHasSingleLauncher = SystemProperties.getInt("persist.sys.target_has_single_launcher", 0) != 0;
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
+        final PreferenceScreen preferenceScreen = getPreferenceScreen();
         if (targetHasSingleLauncher) {
             Preference quickSwitchPreference = findPreference(KEY_QUICKSWITCH_PREFERENCE);
             if (quickSwitchPreference != null) {
@@ -66,13 +74,27 @@ public class Toolbox extends SettingsPreferenceFragment implements Preference.On
                 quickSwitchPreference.setSummary(R.string.quickswitch_not_supported);
             }
         }
+        mNetflixSpoof = (Preference) findPreference(SYS_NETFLIX_SPOOF);
+        mGphotosSpoof = (Preference) findPreference(SYS_GPHOTOS_SPOOF);
         mGmsSpoof = (Preference) findPreference(SYS_GMS_SPOOF);
+        mPropOptions = (Preference) findPreference(SYS_PROP_OPTIONS);
+        isPixelDevice = SystemProperties.get("ro.soc.manufacturer").equals("Google");
+        if (!isPixelDevice) {
+            mPropOptions.setEnabled(false);
+            mPropOptions.setSummary(R.string.spoof_option_disabled);
+        } else {
+            mGmsSpoof.setDependency(SYS_PROP_OPTIONS);
+            mGphotosSpoof.setDependency(SYS_PROP_OPTIONS);
+            mNetflixSpoof.setDependency(SYS_PROP_OPTIONS);
+        }
         mGmsSpoof.setOnPreferenceChangeListener(this);
+        mPropOptions.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mGmsSpoof) {
+        if (preference == mGmsSpoof 
+            || preference == mPropOptions) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }

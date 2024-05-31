@@ -997,6 +997,8 @@
     <!-- Unlock FPS for specific games -->
     <string name="use_games_spoof_title">Unlock higher FPS in games</string>
     <string name="use_games_spoof_summary">Spoof your device as different model for specific games to unlock higher FPS</string>
+    
+    <string name="spoof_option_disabled">Disabling PixelProps spoofing is not supported by current device</string>
 
     <!-- Volume panel -->
     <string name="volume_panel_category">Volume panel</string>
@@ -1658,4 +1660,8 @@
     <!-- QS Bluetooth auto on -->
     <string name="qs_bt_auto_on_title">Automatic Bluetooth on</string>
     <string name="qs_bt_auto_on_summary">Always turn on Bluetooth when pressing the Bluetooth QS tile</string>
+
+    <!-- Enable all props -->
+    <string name="all_props_title">Enable spoof options</string>
+    <string name="all_props_summary">Enables all the spoof options within the PixelProps</string>
 </resources>
