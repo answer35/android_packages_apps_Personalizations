@@ -114,12 +114,12 @@
     <string name="build_is_official_title">#Officiel</string>
     <string name="build_is_community_title">#Communauté</string>
     <string name="maintainer_summary">%s</string>
-    <string name="unknown_maintainer">inconnu</string>
+    <string name="unknown_maintainer">Inconnu</string>
     <string name="device_info_platform_version">14 | quatorze | UpsideDownCake</string>
     <string name="about_rising_device">Appareil Rising</string>
     <string name="device_header_info_category_title">Type</string>
     <string name="device_info_hw_sw_more">Plus</string>
-    <string name="device_info_security_patch">mise à jour de sécurité</string>
+    <string name="device_info_security_patch">Mise à jour de sécurité</string>
     <string name="edit_device_name_title">Modifier le nom de l\'appareil</string>
     <string name="edit_text_hint">Entrez le nouveau nom de l\'appareil</string>
     <string name="build_status">Status</string>
