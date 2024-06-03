@@ -15,7 +15,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+	
+    <!-- Volume Sound Haptics -->
+    <string name="volume_sound_haptics_title">Retour sonore du volume</string>
+    <string name="volume_sound_haptics_summary">Activer le retour sonore lors du réglage du volume</string>
+	
     <!-- Compact QS Media Player-->
     <string name="qs_compact_media_player_mode_title">Lecteur média compact</string>
     <string name="qs_compact_media_player_mode_summary">Activer le mode compact pour le lecteur média des réglages rapides</string>
@@ -1412,7 +1416,6 @@ Les notifications flottantes seront automatiquement désactivées.</string>
     <string name="qs_panel_style_surround">Entouré</string>
     <string name="qs_panel_style_thin">Ligne fine</string>
      
-    <!-- Label for a numbered SIM card.  [CHAR LIMIT=40] -->
     <!-- Volume Steps -->
     <string name="volume_steps_title">Niveaux de volume</string>
     <string name="volume_steps_summary">Contrôler la granularité de chaque flux</string>
@@ -1585,4 +1588,9 @@ Les notifications flottantes seront automatiquement désactivées.</string>
     <!-- QS Bluetooth auto on -->
     <string name="qs_bt_auto_on_title">Bluetooth automatique activé</string>
     <string name="qs_bt_auto_on_summary">Toujours activer le Bluetooth lorsque vous appuyez sur la vignette QS Bluetooth</string>
+
+    <!-- Enable all props -->
+    <string name="all_props_title">Activer les options d\'usurpation d\'identité</string>
+    <string name="all_props_summary">Active toutes les options d\'usurpation d\'identité dans PixelProps</string>
+    <string name="spoof_option_disabled">La désactivation de l\'usurpation d\'identité PixelProps n\'est pas prise en charge par l\'appareil</string>
 </resources>
