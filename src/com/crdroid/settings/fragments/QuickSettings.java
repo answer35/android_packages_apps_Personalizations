@@ -220,12 +220,23 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static void updateQsStyle(Context context) {
         ContentResolver resolver = context.getContentResolver();
 
-        boolean isA11Style = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_TILE_UI_STYLE , 0, UserHandle.USER_CURRENT) != 0;
+        int qsStyleValue = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_TILE_UI_STYLE, 0, UserHandle.USER_CURRENT);
 
+        boolean isA11Style = qsStyleValue != 0 && qsStyleValue != 4;
+        boolean isOOSStyle = qsStyleValue = 4;
+
+        if (isA11Style) {
 	    String qsUIStyleCategory = "android.theme.customization.qs_ui";
         String overlayThemeTarget  = "com.android.systemui";
         String overlayThemePackage  = "com.android.system.qs.ui.A11";
+        }
+
+        if (isOOSStyle) {
+            String qsUIStyleCategory = "android.theme.customization.qs_ui";
+        String overlayThemeTarget  = "com.android.systemui";
+        String overlayThemePackage  = "com.android.system.qs.ui.OOS";
+        }
 
         if (mThemeUtils == null) {
             mThemeUtils = new ThemeUtils(context);
@@ -237,6 +248,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 	    if (isA11Style) {
             mThemeUtils.setOverlayEnabled(qsUIStyleCategory, overlayThemePackage, overlayThemeTarget);
 	    }
+
+            if (isOOSStyle) {
+            mThemeUtils.setOverlayEnabled(qsUIStyleCategory, overlayThemePackage, overlayThemeTarget);
+            }
+
     }
 
     private static void updateQsPanelStyle(Context context) {

@@ -1472,6 +1472,7 @@
     <string name="qs_tile_ui_style_a11_circle">Circle tiles</string>
     <string name="qs_tile_ui_style_a11_square">Square tiles</string>
     <string name="qs_tile_ui_style_a11_mix">Circle &amp; Square tiles</string>
+    <string name="qs_tile_ui_style_oos">OxygenOS tiles</string>
 
     <!-- QS Panel Style -->
     <string name="qs_panel_style_title">QS panel style</string>
